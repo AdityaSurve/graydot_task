@@ -1,0 +1,80 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: auto;
+  font-family: Lato;
+  background: #090a0f80;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  height: 90vh;
+  width: 90vw;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 14px;
+}
+
+#div1,
+#div2 {
+  float: left;
+  width: 50%;
+  height: 80vh;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  background: #ffffff50;
+  border-radius: 14px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#div1::-webkit-scrollbar,
+#div2::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+#div1::-webkit-scrollbar-track,
+#div2::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#div1::-webkit-scrollbar-thumb,
+#div2::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+}
+
+#div1::-webkit-scrollbar-thumb:hover,
+#div2::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#div1 img,
+#div2 img {
+  max-height: calc((80vh - 10px) / 3);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.resetButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff50;
+  color: #fff;
+  cursor: pointer;
+}
+.resetButton:hover {
+  background: #ffffff80;
+}

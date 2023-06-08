@@ -130,3 +130,23 @@ html {
 .hoverPoint:active {
   scale: 0.9;
 }
+
+main {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  background-color: #090a0f99;
+  padding: 20px;
+}
+
+.photoContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  height: 100%;
+  width: 100%;
+}

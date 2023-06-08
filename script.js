@@ -4,6 +4,9 @@
   column.innerHTML = column.innerHTML + column.innerHTML;
 });
 
-function portfolio() {
-  window.open("https://surveaditya15.netlify.app");
+function openMain() {
+  window.open(
+    "file:///C:/Users/ADITYA/Documents/Aditya/WebDev/graydot_task/main.html",
+    "_self"
+  );
 }
