@@ -1,16 +1,7 @@
 html {
-  height: 100%;
-  width: 1000px;
-  background-color: hsla(200, 40%, 30%, 0.4);
-  background-image: url("https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png"),
-    url("https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png"),
-    url("https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png"),
-    url("https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png"),
-    url("https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png");
-  background-repeat: repeat-x;
-  background-position: 0 20%, 0 100%, 0 50%, 0 100%, 0 0;
-  background-size: 2500px, 800px, 500px 200px, 1000px, 400px 260px;
-  animation: 50s para infinite linear;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 @keyframes para {
@@ -42,8 +33,7 @@ img {
   display: block;
   margin-bottom: 1rem;
   height: 150px;
-  width: calc(100% / 3 - 4px);
-  border-radius: 0.25rem;
+  width: calc(100% / 3 - 9px);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 #div1,
@@ -53,7 +43,7 @@ img {
   flex: 1;
   min-height: 10rem;
   background-color: #fff8;
-  border: 3px dashed #111;
+  border: 6px solid #1118;
   border-radius: 0.5rem;
   padding: 1rem;
   display: flex;
@@ -61,20 +51,9 @@ img {
   justify-content: center;
   overflow-y: scroll;
   overflow-x: hidden;
-  gap: 1px;
+  gap: 10px;
 }
-.resetButton {
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-.resetButton:hover {
-  background-color: #27ae60;
-}
+
 .control {
   flex: 1;
   display: flex;
@@ -83,15 +62,15 @@ img {
   gap: 1rem;
 }
 .tick-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  background-image: url("./assets//tick.png");
+  position: fixed;
+  display: none;
+  top: 35%;
+  right: 47%;
+  width: 80px;
+  height: 80px;
+  background-image: url("./assets/tick.png");
   background-size: cover;
-  opacity: 0;
+  opacity: 1;
   animation: tickFadeOut 2s linear forwards;
 }
 
@@ -105,4 +84,123 @@ img {
   100% {
     opacity: 0;
   }
+}
+
+.mybutton {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .mybutton {
+    padding: 19px 32px;
+  }
+}
+
+.mybutton:before,
+.mybutton:after {
+  border-radius: 80px;
+}
+
+.mybutton:before {
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.mybutton:after {
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.mybutton:hover:not(:disabled):before {
+  background: linear-gradient(
+    92.83deg,
+    rgb(255, 116, 38) 0%,
+    rgb(249, 58, 19) 100%
+  );
+}
+
+.mybutton:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.mybutton:active:not(:disabled) {
+  color: #ccc;
+}
+
+.mybutton:active:not(:disabled):before {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.mybutton:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.mybutton:disabled {
+  cursor: default;
+  opacity: 0.24;
 }

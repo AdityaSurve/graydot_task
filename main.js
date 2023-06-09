@@ -10,10 +10,12 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   var droppedImage = document.getElementById(data);
-  var tickOverlay = document.createElement("div");
-  tickOverlay.classList.add("tick-overlay");
-  droppedImage.appendChild(tickOverlay);
   ev.target.appendChild(droppedImage);
+  var tickOverlay = document.querySelector(".tick-overlay");
+  tickOverlay.style.display = "block";
+  tickOverlay.style.animation = "none";
+  tickOverlay.offsetHeight;
+  tickOverlay.style.animation = "tickFadeOut 2s linear forwards";
 }
 
 function resetPage() {
