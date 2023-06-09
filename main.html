@@ -14,7 +14,7 @@
     <title>DragEase</title>
   </head>
   <body>
-    <section>
+    <div class="section">
       <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
         <img
           src="./assets/img1.jpeg"
@@ -162,7 +162,10 @@
         />
       </div>
       <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    </section>
-    <button class="resetButton" onclick="resetPage()">Reset</button>
+    </div>
+    <div class="control">
+      <button class="resetButton" onclick="resetPage()">Reset</button>
+      <button class="resetButton" onclick="homePage()">Home</button>
+    </div>
   </body>
 </html>

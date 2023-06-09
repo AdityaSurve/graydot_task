@@ -9,9 +9,16 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  var droppedImage = document.getElementById(data);
+  var tickOverlay = document.createElement("div");
+  tickOverlay.classList.add("tick-overlay");
+  droppedImage.appendChild(tickOverlay);
+  ev.target.appendChild(droppedImage);
 }
 
 function resetPage() {
   location.reload();
+}
+function homePage() {
+  window.location.href = "index.html";
 }

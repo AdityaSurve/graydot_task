@@ -1,80 +1,108 @@
+html {
+  height: 100%;
+  width: 1000px;
+  background-color: hsla(200, 40%, 30%, 0.4);
+  background-image: url("https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png"),
+    url("https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png"),
+    url("https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png"),
+    url("https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png"),
+    url("https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png");
+  background-repeat: repeat-x;
+  background-position: 0 20%, 0 100%, 0 50%, 0 100%, 0 0;
+  background-size: 2500px, 800px, 500px 200px, 1000px, 400px 260px;
+  animation: 50s para infinite linear;
+}
+
+@keyframes para {
+  100% {
+    background-position: -5000px 20%, -800px 95%, 500px 50%, 1000px 100%,
+      400px 0;
+  }
+}
 body {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
-  margin: 0;
-  padding: auto;
-  font-family: Lato;
-  background: #090a0f80;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  overflow: hidden;
 }
-section {
-  height: 90vh;
-  width: 90vw;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+.section {
+  flex: 2;
+  border-radius: 0.5rem;
+  padding: 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  border-radius: 14px;
+  gap: 30px;
+  height: 60vh;
 }
-
+img {
+  display: block;
+  margin-bottom: 1rem;
+  height: 150px;
+  width: calc(100% / 3 - 4px);
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 #div1,
 #div2 {
-  float: left;
-  width: 50%;
-  height: 80vh;
-  margin: 10px;
-  padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 3px;
-  background: #ffffff50;
-  border-radius: 14px;
-  overflow-x: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  flex: 1;
+  min-height: 10rem;
+  background-color: #fff8;
+  border: 3px dashed #111;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   overflow-y: scroll;
-}
-
-#div1::-webkit-scrollbar,
-#div2::-webkit-scrollbar {
-  width: 0.5em;
-}
-
-#div1::-webkit-scrollbar-track,
-#div2::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-#div1::-webkit-scrollbar-thumb,
-#div2::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 10px;
-}
-
-#div1::-webkit-scrollbar-thumb:hover,
-#div2::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-#div1 img,
-#div2 img {
-  max-height: calc((80vh - 10px) / 3);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+  overflow-x: hidden;
+  gap: 1px;
 }
 .resetButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #ffffff50;
+  background-color: #2ecc71;
   color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.25rem;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 .resetButton:hover {
-  background: #ffffff80;
+  background-color: #27ae60;
+}
+.control {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.tick-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-image: url("./assets//tick.png");
+  background-size: cover;
+  opacity: 0;
+  animation: tickFadeOut 2s linear forwards;
+}
+
+@keyframes tickFadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
